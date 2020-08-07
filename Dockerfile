@@ -22,7 +22,7 @@ COPY --from=builder ${APP_DIR}/build /usr/share/nginx/html
 COPY --from=builder ${APP_DIR}/nginx/nginx.conf /etc/nginx/
 
 
-EXPOSE ${PORT}
+EXPOSE 8080
 
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
