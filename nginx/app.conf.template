@@ -1,5 +1,5 @@
 server {
-  listen 8080;
+  listen ${PORT};
   server_name localhost;
   root /usr/share/nginx/html;
   index index.html index.htm;
@@ -24,7 +24,12 @@ server {
     font/opentype
     application/vnd.ms-fontobject
     image/svg+xml;
-  
+
+  location /api/ {
+    proxy_pass ${BACKEND_API}/;
+    proxy_redirect off;
+  }
+
   location / {
     try_files $uri $uri/ /index.html =404;
   }
