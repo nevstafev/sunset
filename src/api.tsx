@@ -26,12 +26,14 @@ const mapResponseData = ({
   };
 };
 
-export const getSusetData = async (position: Position): Promise<SunsetData> => {
+export const getSunsetData = async (
+  position: Position
+): Promise<SunsetData> => {
   const latitude = position?.coords.latitude;
   const longitude = position?.coords.longitude;
 
   if (!latitude || !longitude) {
-    throw new Error("Cordinates is not specified.");
+    throw new Error("Coordinates is not specified.");
   }
 
   const response = await fetch(
